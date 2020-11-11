@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		449F40DB41760AB322B2C695 /* Pods_BakuSnakeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 958156B38ADB33A19D25AA63 /* Pods_BakuSnakeTests.framework */; };
 		50F94B236F6F518AE9DA4E59 /* Pods_BakuSnake_BakuSnakeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBE49F821CAD4FD888747D1E /* Pods_BakuSnake_BakuSnakeUITests.framework */; };
+		544795D5255561DA000605F9 /* Snake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544795D4255561DA000605F9 /* Snake.swift */; };
+		544795D6255561DB000605F9 /* Snake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544795D4255561DA000605F9 /* Snake.swift */; };
+		544795E725566CC5000605F9 /* Foods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544795E625566CC5000605F9 /* Foods.swift */; };
+		544795E825566CC5000605F9 /* Foods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544795E625566CC5000605F9 /* Foods.swift */; };
 		546CA03D254D3B8300F2CA5F /* BakuSnakeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546CA03C254D3B8300F2CA5F /* BakuSnakeApp.swift */; };
 		546CA03F254D3B8300F2CA5F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546CA03E254D3B8300F2CA5F /* ContentView.swift */; };
 		546CA041254D3B8400F2CA5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 546CA040254D3B8400F2CA5F /* Assets.xcassets */; };
@@ -38,6 +42,8 @@
 /* Begin PBXFileReference section */
 		22703312A607F9F8E2395A67 /* Pods-BakuSnake-BakuSnakeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BakuSnake-BakuSnakeUITests.debug.xcconfig"; path = "Target Support Files/Pods-BakuSnake-BakuSnakeUITests/Pods-BakuSnake-BakuSnakeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		23435561A2CC4539CDB144F1 /* Pods-BakuSnake.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BakuSnake.debug.xcconfig"; path = "Target Support Files/Pods-BakuSnake/Pods-BakuSnake.debug.xcconfig"; sourceTree = "<group>"; };
+		544795D4255561DA000605F9 /* Snake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snake.swift; sourceTree = "<group>"; };
+		544795E625566CC5000605F9 /* Foods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Foods.swift; sourceTree = "<group>"; };
 		546CA039254D3B8300F2CA5F /* BakuSnake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BakuSnake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		546CA03C254D3B8300F2CA5F /* BakuSnakeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BakuSnakeApp.swift; sourceTree = "<group>"; };
 		546CA03E254D3B8300F2CA5F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -98,8 +104,31 @@
 				74736E044D73A967D5DE9B55 /* Pods-BakuSnakeTests.debug.xcconfig */,
 				983A5E0BE84236C6D36194BA /* Pods-BakuSnakeTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		544795D02555611F000605F9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				546CA03E254D3B8300F2CA5F /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		544795D225556155000605F9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				544795D4255561DA000605F9 /* Snake.swift */,
+				544795E625566CC5000605F9 /* Foods.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		544795D325556166000605F9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		546CA030254D3B8300F2CA5F = {
@@ -129,7 +158,9 @@
 			isa = PBXGroup;
 			children = (
 				546CA03C254D3B8300F2CA5F /* BakuSnakeApp.swift */,
-				546CA03E254D3B8300F2CA5F /* ContentView.swift */,
+				544795D225556155000605F9 /* Model */,
+				544795D02555611F000605F9 /* View */,
+				544795D325556166000605F9 /* ViewModel */,
 				546CA040254D3B8400F2CA5F /* Assets.xcassets */,
 				546CA045254D3B8400F2CA5F /* Info.plist */,
 				546CA042254D3B8400F2CA5F /* Preview Content */,
@@ -375,7 +406,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				546CA03F254D3B8300F2CA5F /* ContentView.swift in Sources */,
+				544795E725566CC5000605F9 /* Foods.swift in Sources */,
 				546CA03D254D3B8300F2CA5F /* BakuSnakeApp.swift in Sources */,
+				544795D5255561DA000605F9 /* Snake.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +416,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				544795E825566CC5000605F9 /* Foods.swift in Sources */,
+				544795D6255561DB000605F9 /* Snake.swift in Sources */,
 				546CA04F254D3B8400F2CA5F /* BakuSnakeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
