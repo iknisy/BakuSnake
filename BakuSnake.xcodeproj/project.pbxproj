@@ -13,6 +13,7 @@
 		544795D6255561DB000605F9 /* Snake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544795D4255561DA000605F9 /* Snake.swift */; };
 		544795E725566CC5000605F9 /* Foods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544795E625566CC5000605F9 /* Foods.swift */; };
 		544795E825566CC5000605F9 /* Foods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544795E625566CC5000605F9 /* Foods.swift */; };
+		544795ED255D4D7F000605F9 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544795EC255D4D7F000605F9 /* GameView.swift */; };
 		546CA03D254D3B8300F2CA5F /* BakuSnakeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546CA03C254D3B8300F2CA5F /* BakuSnakeApp.swift */; };
 		546CA03F254D3B8300F2CA5F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546CA03E254D3B8300F2CA5F /* ContentView.swift */; };
 		546CA041254D3B8400F2CA5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 546CA040254D3B8400F2CA5F /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 		23435561A2CC4539CDB144F1 /* Pods-BakuSnake.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BakuSnake.debug.xcconfig"; path = "Target Support Files/Pods-BakuSnake/Pods-BakuSnake.debug.xcconfig"; sourceTree = "<group>"; };
 		544795D4255561DA000605F9 /* Snake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snake.swift; sourceTree = "<group>"; };
 		544795E625566CC5000605F9 /* Foods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Foods.swift; sourceTree = "<group>"; };
+		544795EC255D4D7F000605F9 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		546CA039254D3B8300F2CA5F /* BakuSnake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BakuSnake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		546CA03C254D3B8300F2CA5F /* BakuSnakeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BakuSnakeApp.swift; sourceTree = "<group>"; };
 		546CA03E254D3B8300F2CA5F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				546CA03E254D3B8300F2CA5F /* ContentView.swift */,
+				544795EC255D4D7F000605F9 /* GameView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 				544795E725566CC5000605F9 /* Foods.swift in Sources */,
 				546CA03D254D3B8300F2CA5F /* BakuSnakeApp.swift in Sources */,
 				544795D5255561DA000605F9 /* Snake.swift in Sources */,
+				544795ED255D4D7F000605F9 /* GameView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
