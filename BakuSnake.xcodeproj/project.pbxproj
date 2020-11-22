@@ -14,6 +14,8 @@
 		544795E725566CC5000605F9 /* Foods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544795E625566CC5000605F9 /* Foods.swift */; };
 		544795E825566CC5000605F9 /* Foods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544795E625566CC5000605F9 /* Foods.swift */; };
 		544795ED255D4D7F000605F9 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544795EC255D4D7F000605F9 /* GameView.swift */; };
+		544795F2256147DB000605F9 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544795F1256147DB000605F9 /* GameViewModel.swift */; };
+		5450353F2569119000670E28 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5450353E2569119000670E28 /* Extensions.swift */; };
 		546CA03D254D3B8300F2CA5F /* BakuSnakeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546CA03C254D3B8300F2CA5F /* BakuSnakeApp.swift */; };
 		546CA03F254D3B8300F2CA5F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546CA03E254D3B8300F2CA5F /* ContentView.swift */; };
 		546CA041254D3B8400F2CA5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 546CA040254D3B8400F2CA5F /* Assets.xcassets */; };
@@ -46,6 +48,8 @@
 		544795D4255561DA000605F9 /* Snake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snake.swift; sourceTree = "<group>"; };
 		544795E625566CC5000605F9 /* Foods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Foods.swift; sourceTree = "<group>"; };
 		544795EC255D4D7F000605F9 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		544795F1256147DB000605F9 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
+		5450353E2569119000670E28 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		546CA039254D3B8300F2CA5F /* BakuSnake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BakuSnake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		546CA03C254D3B8300F2CA5F /* BakuSnakeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BakuSnakeApp.swift; sourceTree = "<group>"; };
 		546CA03E254D3B8300F2CA5F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -123,6 +127,7 @@
 			children = (
 				544795D4255561DA000605F9 /* Snake.swift */,
 				544795E625566CC5000605F9 /* Foods.swift */,
+				5450353E2569119000670E28 /* Extensions.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -130,6 +135,7 @@
 		544795D325556166000605F9 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				544795F1256147DB000605F9 /* GameViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -162,8 +168,8 @@
 			children = (
 				546CA03C254D3B8300F2CA5F /* BakuSnakeApp.swift */,
 				544795D225556155000605F9 /* Model */,
-				544795D02555611F000605F9 /* View */,
 				544795D325556166000605F9 /* ViewModel */,
+				544795D02555611F000605F9 /* View */,
 				546CA040254D3B8400F2CA5F /* Assets.xcassets */,
 				546CA045254D3B8400F2CA5F /* Info.plist */,
 				546CA042254D3B8400F2CA5F /* Preview Content */,
@@ -408,11 +414,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				544795F2256147DB000605F9 /* GameViewModel.swift in Sources */,
 				546CA03F254D3B8300F2CA5F /* ContentView.swift in Sources */,
 				544795E725566CC5000605F9 /* Foods.swift in Sources */,
 				546CA03D254D3B8300F2CA5F /* BakuSnakeApp.swift in Sources */,
 				544795D5255561DA000605F9 /* Snake.swift in Sources */,
 				544795ED255D4D7F000605F9 /* GameView.swift in Sources */,
+				5450353F2569119000670E28 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,15 +7,20 @@
 
 import Foundation
 
-class Snake: NSObject {
-    private var body: [(Int, Int)]
-    private var facing: SnakeDirection
-    private var length: UInt
+class Snake {
+    private(set) var body: [(Int, Int)]
+    private(set) var bodyFacing: [SnakeDirection]
+    private(set) var facing: SnakeDirection
+    private(set) var length: UInt
     private var increaseFlag = false
+    private let maxX: Int
+    private let maxY: Int
     
     init(maxX: Int, maxY: Int, diretion: SnakeDirection = .SnakeFacingRight, bodyLength: UInt = 2) {
         facing = diretion
         length = bodyLength
+        self.maxX = maxX
+        self.maxY = maxY
         switch diretion {
         case .SnakeFacingRight:
             body = [(maxX/2-Int(bodyLength-1),maxY/2)]
@@ -27,22 +32,24 @@ class Snake: NSObject {
             body = [(maxX/2,maxY/2-Int(bodyLength-1))]
         }
         body.append((maxX/2, maxY/2))
+        bodyFacing = [facing]
     }
-    func getBody() -> [(Int, Int)] {
-        return body
-    }
-    func getDirection() -> SnakeDirection {
-        return facing
-    }
-    func getLength() -> UInt {
-        return length
-    }
+//    func getBody() -> [(Int, Int)] {
+//        return body
+//    }
+//    func getDirection() -> SnakeDirection {
+//        return facing
+//    }
+//    func getLength() -> UInt {
+//        return length
+//    }
     
     func changeDirection(to newDirection: SnakeDirection) {
         let diff = facing.rawValue - newDirection.rawValue
-            if abs(diff) == 2 || diff == 0 {return}
-            facing = newDirection
-            body.append(body.last!)
+        if abs(diff) == 2 || diff == 0 {return}
+        facing = newDirection
+        bodyFacing.append(facing)
+        body.append(body.last!)
     }
     func increaseLength(){
         if increaseFlag {return}
@@ -54,13 +61,29 @@ class Snake: NSObject {
         let head = body.popLast()!
         switch facing {
         case .SnakeFacingRight:
-            body.append((head.0+1, head.1))
+            if head.0 == maxX {
+                body.append((0, head.1))
+            }else{
+                body.append((head.0+1, head.1))
+            }
         case .SnakeFacingLeft:
-            body.append((head.0-1, head.1))
+            if head.0 == 0 {
+                body.append((maxX, head.1))
+            }else{
+                body.append((head.0-1, head.1))
+            }
         case .SnakeFacingDown:
-            body.append((head.0, head.1+1))
+            if head.1 == maxY {
+                body.append((head.0, 0))
+            }else{
+                body.append((head.0, head.1+1))
+            }
         case .SnakeFacingUp:
-            body.append((head.0, head.1-1))
+            if head.1 == 0 {
+                body.append((head.0, maxY))
+            }else{
+                body.append((head.0, head.1-1))
+            }
         }
         
 //        Pop tail
@@ -68,52 +91,96 @@ class Snake: NSObject {
             increaseFlag = false
             return
         }
-        let diffX = body[0].0 - body[1].0
-        let diffY = body[0].1 - body[1].1
-        switch diffX.signum() {
-        case 1:
-            body[0].0 -= 1
-        case -1:
-            body[0].0 += 1
-        case 0:
-            if diffY.signum() == 1 {
+        switch bodyFacing[0] {
+        case .SnakeFacingUp:
+            if body[0].1 == 0 {
+                body[0].1 = maxY
+            }else{
                 body[0].1 -= 1
+            }
+        case .SnakeFacingDown:
+            if body[0].1 == maxY {
+                body[0].1 = 0
             }else{
                 body[0].1 += 1
             }
-        default:
-            break
+        case .SnakeFacingLeft:
+            if body[0].0 == 0 {
+                body[0].0 = maxX
+            }else{
+                body[0].0 -= 1
+            }
+        case .SnakeFacingRight:
+            if body[0].0 == maxX {
+                body[0].0 = 0
+            }else{
+                body[0].0 += 1
+            }
         }
         if body[0] == body[1] {
             body.removeFirst()
+            bodyFacing.removeFirst()
         }
     }
     
     func isHitBody() -> Bool {
-//        if body.count <= 2 {return false}
+        return isInBody(x: body.last!.0, y: body.last!.1)
+    }
+    func isHitPoint(x: Int, y: Int) -> Bool {
+        if body.last!.0 == x && body.last!.1 == y {
+            return true
+        }
+        return false
+    }
+    func isInBody(x: Int, y: Int) -> Bool {
         for i in 1..<body.count-1 {
             let pastPoint = body[i-1]
             let currPoint = body[i]
             if pastPoint.0 - currPoint.0 == 0 {
-                
-                for j in stride(from: pastPoint.1, through: currPoint.1, by: 1) {
-                    if body.last! == (pastPoint.0, j) {
-                        return true
+                if x != pastPoint.0 {continue}
+                switch bodyFacing[i-1] {
+                case .SnakeFacingUp:
+                    if pastPoint.1 < currPoint.1 {
+                        if passBody(from: currPoint.1, through: maxY, target: y) || passBody(from: 0, through: pastPoint.1, target: y) {return true}
+                    }else{
+                        if passBody(from: currPoint.1, through: pastPoint.1, target: y) {return true}
                     }
+                case .SnakeFacingDown:
+                    if pastPoint.1 > currPoint.1 {
+                        if passBody(from: pastPoint.1, through: maxY, target: y) || passBody(from: 0, through: currPoint.1, target: y) {return true}
+                    }else{
+                        if passBody(from: pastPoint.1, through: currPoint.1, target: y) {return true}
+                    }
+                default:
+                    break
                 }
             }else{
-                for j in stride(from: pastPoint.0, through: currPoint.0, by: 1) {
-                    if body.last! == (j, pastPoint.1) {
-                        return true
+                if y != pastPoint.1 {continue}
+                switch bodyFacing[i-1] {
+                case .SnakeFacingLeft:
+                    if pastPoint.0 < currPoint.0 {
+                        if passBody(from: currPoint.0, through: maxX, target: x) || passBody(from: 0, through: pastPoint.0, target: x) {return true}
+                    }else{
+                        if passBody(from: currPoint.0, through: pastPoint.0, target: x) {return true}
                     }
+                case .SnakeFacingRight:
+                    if pastPoint.0 > currPoint.0 {
+                        if passBody(from: pastPoint.0, through: maxX, target: x) || passBody(from: 0, through: currPoint.0, target: x) {return true}
+                    }else{
+                        if passBody(from: pastPoint.0, through: currPoint.0, target: x) {return true}
+                    }
+                default:
+                    break
                 }
             }
         }
         return false
     }
-    func isHitPoint(x: Int, y: Int) -> Bool {
-        if body.last!.0 == x && body.last!.1 == y {
-            return true
+    private func passBody(from: Int, through: Int, target: Int) -> Bool {
+        for i in from...through {
+            if target == i {
+                return true
+            }
         }
         return false
     }

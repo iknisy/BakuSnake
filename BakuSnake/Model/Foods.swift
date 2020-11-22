@@ -7,10 +7,10 @@
 
 import Foundation
 
-class Foods: NSObject {
-    private var x: Int
-    private var y: Int
-    private var real: Bool
+class Foods {
+    private(set) var x: Int
+    private(set) var y: Int
+    private(set) var real: Bool
     
     init(maxX: Int, maxY: Int, isReal: Bool = true){
         real = isReal
@@ -19,11 +19,11 @@ class Foods: NSObject {
     }
     
 //    回傳此物件座標ＸＹ
-    func getPoint() -> (Int, Int){
-        return (x, y)
-    }
+//    func getPoint() -> (Int, Int){
+//        return (x, y)
+//    }
 //    回傳此物件是否為真
-    func isReal() -> Bool{
-        return real
-    }
+//    func isReal() -> Bool{
+//        return real
+//    }
 }
