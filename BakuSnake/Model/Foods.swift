@@ -18,12 +18,4 @@ class Foods {
         y = Int.random(in: 1..<maxY)
     }
     
-//    回傳此物件座標ＸＹ
-//    func getPoint() -> (Int, Int){
-//        return (x, y)
-//    }
-//    回傳此物件是否為真
-//    func isReal() -> Bool{
-//        return real
-//    }
 }

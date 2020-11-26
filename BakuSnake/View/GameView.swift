@@ -18,6 +18,9 @@ struct GameView: View {
     private let edgeRight: CGFloat
     private let edgeLeft: CGFloat
     @State private var snakeBody: [(Int, Int)]
+    @State private var gameoverFlag = false
+    @State private var restartFlag = false
+    @Environment(\.presentationMode) var presentaion
     
     init(lv: Int) {
         level = lv
@@ -34,8 +37,7 @@ struct GameView: View {
     
     var body: some View {
         VStack{
-            Label("Level: \(level)", systemImage: "bolt.fill")
-                .labelStyle(TitleOnlyLabelStyle())
+            Text("Level: \(level)")
             ZStack{
 //                edge
                 Path {path in
@@ -89,13 +91,17 @@ struct GameView: View {
                         path.addLine(to: CGPoint(x: edgeLeft, y: edgeDown))
                         path.addLine(to: CGPoint(x: edgeLeft, y: edgeUp))
                     }
-                    .fill(Color.blue)
+                    .fill(Color(red: 0.93, green: 0.93, blue: 0.93, opacity: 1.0))
                 }
             }
             .onAppear{
                 Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true){_ in
                     self.snakeVM.snakeMove()
                     snakeBody = snakeVM.getSnakeBody()
+                    if snakeVM.gameoverFlag {gameoverFlag = true}
+                    if restartFlag {
+                        self.presentaion.wrappedValue.dismiss()
+                    }
                 }
             }
             .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local).onEnded{value in
@@ -113,10 +119,12 @@ struct GameView: View {
                     }
                 }
             })
-            Label("Scope: \(snakeVM.score)", systemImage: "bolt.fill")
-                .labelStyle(TitleOnlyLabelStyle())
+            Text("Scope: \(snakeVM.score)")
         }
         .navigationBarHidden(true)
+        .sheet(isPresented: $gameoverFlag , content: {
+            GameOverView(score: snakeVM.score, gameOverFlag: $gameoverFlag, restartFlag: $restartFlag)
+        })
     }
 }
 

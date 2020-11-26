@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,12 @@
 		544795ED255D4D7F000605F9 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544795EC255D4D7F000605F9 /* GameView.swift */; };
 		544795F2256147DB000605F9 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544795F1256147DB000605F9 /* GameViewModel.swift */; };
 		5450353F2569119000670E28 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5450353E2569119000670E28 /* Extensions.swift */; };
+		54503547256A49A700670E28 /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54503546256A49A600670E28 /* GameOverView.swift */; };
+		5450354C256A622900670E28 /* RankingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5450354B256A622900670E28 /* RankingViewModel.swift */; };
+		54503551256A62AC00670E28 /* Rank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54503550256A62AC00670E28 /* Rank.swift */; };
+		5450357B256B9E2D00670E28 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5450357A256B9E2C00670E28 /* GoogleService-Info.plist */; };
+		5450359F256BB3A800670E28 /* RankingDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5450359E256BB3A800670E28 /* RankingDataService.swift */; };
+		545035A4256CE73000670E28 /* RankingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545035A3256CE73000670E28 /* RankingViewModelTests.swift */; };
 		546CA03D254D3B8300F2CA5F /* BakuSnakeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546CA03C254D3B8300F2CA5F /* BakuSnakeApp.swift */; };
 		546CA03F254D3B8300F2CA5F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546CA03E254D3B8300F2CA5F /* ContentView.swift */; };
 		546CA041254D3B8400F2CA5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 546CA040254D3B8400F2CA5F /* Assets.xcassets */; };
@@ -50,6 +56,12 @@
 		544795EC255D4D7F000605F9 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		544795F1256147DB000605F9 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		5450353E2569119000670E28 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		54503546256A49A600670E28 /* GameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverView.swift; sourceTree = "<group>"; };
+		5450354B256A622900670E28 /* RankingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewModel.swift; sourceTree = "<group>"; };
+		54503550256A62AC00670E28 /* Rank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rank.swift; sourceTree = "<group>"; };
+		5450357A256B9E2C00670E28 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5450359E256BB3A800670E28 /* RankingDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingDataService.swift; sourceTree = "<group>"; };
+		545035A3256CE73000670E28 /* RankingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewModelTests.swift; sourceTree = "<group>"; };
 		546CA039254D3B8300F2CA5F /* BakuSnake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BakuSnake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		546CA03C254D3B8300F2CA5F /* BakuSnakeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BakuSnakeApp.swift; sourceTree = "<group>"; };
 		546CA03E254D3B8300F2CA5F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -118,6 +130,7 @@
 			children = (
 				546CA03E254D3B8300F2CA5F /* ContentView.swift */,
 				544795EC255D4D7F000605F9 /* GameView.swift */,
+				54503546256A49A600670E28 /* GameOverView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -127,7 +140,9 @@
 			children = (
 				544795D4255561DA000605F9 /* Snake.swift */,
 				544795E625566CC5000605F9 /* Foods.swift */,
+				54503550256A62AC00670E28 /* Rank.swift */,
 				5450353E2569119000670E28 /* Extensions.swift */,
+				5450359E256BB3A800670E28 /* RankingDataService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -136,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				544795F1256147DB000605F9 /* GameViewModel.swift */,
+				5450354B256A622900670E28 /* RankingViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -172,6 +188,7 @@
 				544795D02555611F000605F9 /* View */,
 				546CA040254D3B8400F2CA5F /* Assets.xcassets */,
 				546CA045254D3B8400F2CA5F /* Info.plist */,
+				5450357A256B9E2C00670E28 /* GoogleService-Info.plist */,
 				546CA042254D3B8400F2CA5F /* Preview Content */,
 			);
 			path = BakuSnake;
@@ -190,6 +207,7 @@
 			children = (
 				546CA04E254D3B8400F2CA5F /* BakuSnakeTests.swift */,
 				546CA050254D3B8400F2CA5F /* Info.plist */,
+				545035A3256CE73000670E28 /* RankingViewModelTests.swift */,
 			);
 			path = BakuSnakeTests;
 			sourceTree = "<group>";
@@ -224,6 +242,7 @@
 				546CA035254D3B8300F2CA5F /* Sources */,
 				546CA036254D3B8300F2CA5F /* Frameworks */,
 				546CA037254D3B8300F2CA5F /* Resources */,
+				8AE7B0D04616730C0443B1EA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -261,6 +280,7 @@
 				546CA051254D3B8400F2CA5F /* Sources */,
 				546CA052254D3B8400F2CA5F /* Frameworks */,
 				546CA053254D3B8400F2CA5F /* Resources */,
+				A86B8B6308B4A2BCB0BB48DA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -321,6 +341,7 @@
 			files = (
 				546CA044254D3B8400F2CA5F /* Preview Assets.xcassets in Resources */,
 				546CA041254D3B8400F2CA5F /* Assets.xcassets in Resources */,
+				5450357B256B9E2D00670E28 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,6 +406,40 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		8AE7B0D04616730C0443B1EA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BakuSnake/Pods-BakuSnake-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BakuSnake/Pods-BakuSnake-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BakuSnake/Pods-BakuSnake-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A86B8B6308B4A2BCB0BB48DA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BakuSnake-BakuSnakeUITests/Pods-BakuSnake-BakuSnakeUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BakuSnake-BakuSnakeUITests/Pods-BakuSnake-BakuSnakeUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BakuSnake-BakuSnakeUITests/Pods-BakuSnake-BakuSnakeUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C73FFEA3DD9415B664D98515 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -416,10 +471,14 @@
 			files = (
 				544795F2256147DB000605F9 /* GameViewModel.swift in Sources */,
 				546CA03F254D3B8300F2CA5F /* ContentView.swift in Sources */,
+				5450359F256BB3A800670E28 /* RankingDataService.swift in Sources */,
 				544795E725566CC5000605F9 /* Foods.swift in Sources */,
 				546CA03D254D3B8300F2CA5F /* BakuSnakeApp.swift in Sources */,
+				54503551256A62AC00670E28 /* Rank.swift in Sources */,
 				544795D5255561DA000605F9 /* Snake.swift in Sources */,
+				5450354C256A622900670E28 /* RankingViewModel.swift in Sources */,
 				544795ED255D4D7F000605F9 /* GameView.swift in Sources */,
+				54503547256A49A700670E28 /* GameOverView.swift in Sources */,
 				5450353F2569119000670E28 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -431,6 +490,7 @@
 				544795E825566CC5000605F9 /* Foods.swift in Sources */,
 				544795D6255561DB000605F9 /* Snake.swift in Sources */,
 				546CA04F254D3B8400F2CA5F /* BakuSnakeTests.swift in Sources */,
+				545035A4256CE73000670E28 /* RankingViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

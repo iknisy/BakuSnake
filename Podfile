@@ -6,6 +6,8 @@ target 'BakuSnake' do
   use_frameworks!
 
   # Pods for BakuSnake
+  pod 'Firebase/Auth'
+  pod 'FirebaseDatabase'
 
   target 'BakuSnakeTests' do
     inherit! :search_paths

@@ -32,7 +32,7 @@ class GameViewModel {
         }
         if level == 3 {
             warFogFlag = true
-            warFogLayer = 70
+            warFogLayer = 33
         }
         gameSnake = Snake(maxX: maxX, maxY: maxY)
         renewFoods()

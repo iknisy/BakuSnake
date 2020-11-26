@@ -34,15 +34,6 @@ class Snake {
         body.append((maxX/2, maxY/2))
         bodyFacing = [facing]
     }
-//    func getBody() -> [(Int, Int)] {
-//        return body
-//    }
-//    func getDirection() -> SnakeDirection {
-//        return facing
-//    }
-//    func getLength() -> UInt {
-//        return length
-//    }
     
     func changeDirection(to newDirection: SnakeDirection) {
         let diff = facing.rawValue - newDirection.rawValue
