@@ -28,6 +28,7 @@ struct GameOverView: View {
                 TextField("Your name:", text: $name)
                     .padding(.horizontal, UIScreen.main.bounds.width * 0.1)
                 Button{
+                    guard name != "" else {return}
                     rankings.updateRanking(name: name, score: score)
                 } label: {
                     Text("Upload score")
@@ -35,7 +36,11 @@ struct GameOverView: View {
             }
             VStack{
                 Text("Best Ranking:")
-                Text("NAME      SCORE")
+                if rankings.ranking.count == 0 {
+                    Text("Loading...\n")
+                }else{
+                    Text("NAME      SCORE")
+                }
                 VStack(alignment: .leading){
                     ForEach(rankings.ranking, id: \.rank){
                         Text("\($0.name)    :   \($0.score)")

@@ -66,7 +66,7 @@ struct GameView: View {
                     }
                 }.stroke(Color.black, style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round))
 //                fog of war
-                if snakeVM.warFogFlag {
+                if snakeVM.warFogLayer != 0 {
                     Path {path in
 //                        inside
                         let snakeDiffX = CGFloat(snakeBody.last!.0) - maxX/2
@@ -95,13 +95,13 @@ struct GameView: View {
                 }
             }
             .onAppear{
-                Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true){_ in
+                Timer.scheduledTimer(withTimeInterval: (0.1 / (1 + Double(snakeVM.score) * 0.05)), repeats: true){_ in
                     self.snakeVM.snakeMove()
                     snakeBody = snakeVM.getSnakeBody()
-                    if snakeVM.gameoverFlag {gameoverFlag = true}
                     if restartFlag {
                         self.presentaion.wrappedValue.dismiss()
                     }
+                    if snakeVM.gameoverFlag {gameoverFlag = true}
                 }
             }
             .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local).onEnded{value in

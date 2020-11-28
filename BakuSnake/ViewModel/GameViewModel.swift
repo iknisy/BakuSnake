@@ -12,40 +12,59 @@ class GameViewModel {
     private(set) var gameFoods = [Foods]()
     private(set) var level: Int
     private(set) var gameoverFlag = false
-    private(set) var multiFoodsFlag = false
-    private(set) var warFogFlag = false
+//    private(set) var multiFoodsFlag = false
+    private(set) var foodNumber = 1
+//    private(set) var warFogFlag = false
     private(set) var warFogLayer = 0
     private let maxX: Int
     private let maxY: Int
-    private(set) var score = 0 /*{
+    private(set) var score = 0 {
         didSet{
             //分數的上升使難度上升
+            if score % 10 == 0 && score > 0 {
+                upgrate()
+            }
         }
-    }*/
+    }
+    private func upgrate(){
+        switch level {
+        case 2:
+            guard foodNumber < 10 else {return}
+            foodNumber += 1
+        case 3:
+            guard warFogLayer < 90 else {return}
+            warFogLayer += 10
+        default:
+            return
+        }
+    }
     
     init(maxX: Int, maxY: Int, level: Int) {
         self.maxX = maxX
         self.maxY = maxY
         self.level = level
         if level == 2 {
-            multiFoodsFlag = true
+//            multiFoodsFlag = true
+            foodNumber = 2
         }
         if level == 3 {
-            warFogFlag = true
-            warFogLayer = 33
+//            warFogFlag = true
+            warFogLayer = 10
         }
         gameSnake = Snake(maxX: maxX, maxY: maxY)
         renewFoods()
     }
     
-    func renewFoods(){
+    private func renewFoods(){
         gameFoods.removeAll()
         var realFood = Foods(maxX: maxX, maxY: maxY)
         while gameSnake.isInBody(x: realFood.x, y: realFood.y) {
             realFood = Foods(maxX: maxX, maxY: maxY)
         }
         gameFoods.append(realFood)
-        if multiFoodsFlag {
+//        if multiFoodsFlag {}
+//        guard foodNumber > 1 else {return}
+        for _ in 1..<foodNumber {
             let fakeFood = Foods(maxX: maxX, maxY: maxY, isReal: false)
             gameFoods.append(fakeFood)
         }
@@ -70,7 +89,7 @@ class GameViewModel {
             }
         }
     }
-    func hitFood(){
+    private func hitFood(){
         gameSnake.increaseLength()
         score += 1
         renewFoods()

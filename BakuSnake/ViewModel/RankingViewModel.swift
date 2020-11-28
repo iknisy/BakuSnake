@@ -49,7 +49,7 @@ class RankingViewModel {
         ableUpdate = false
     }
     
-    func updateToDB(index: String, name: String, score: Int) {
+    private func updateToDB(index: String, name: String, score: Int) {
         RankingDataService.dataService.RESULTS_REF.setValue(name, forKeyPath: "\(index)/name")
         RankingDataService.dataService.RESULTS_REF.setValue(score, forKeyPath: "\(index)/score")
     }
