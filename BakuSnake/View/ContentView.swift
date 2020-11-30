@@ -8,13 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+//    為了顯示下一頁所用的
     @State private var isPresented = false
+//    預設遊戲難度等級1
     @State private var level = 1
+//    在畫面周圍留白的尺寸
     @State private var buffX = (UIScreen.main.bounds.width - 230)/2
     @State private var buffY = (UIScreen.main.bounds.height - 450)/2 - (UIScreen.main.bounds.height / 10)
     var body: some View {
         NavigationView{
             VStack(alignment: .center) {
+//                標題
                 Path { path in
     //                S
                     path.move(to: CGPoint(x: 100+buffX, y: 50+buffY))
@@ -48,7 +52,7 @@ struct ContentView: View {
                     path.addLine(to: CGPoint(x: 100+buffX, y: 400+buffY))
                 }
                 .stroke(Color.gray, style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .bevel))
-                
+//                遊戲難度
                 Picker("Level", selection: $level) {
                     Text("Easy").tag(1)
                     Text("Normal").tag(2)
@@ -56,7 +60,7 @@ struct ContentView: View {
                 }
                 .pickerStyle(SegmentedPickerStyle())
                 .padding(.horizontal, UIScreen.main.bounds.width / 10)
-                
+//                遊戲開始的按鈕
                 Button{
                     self.isPresented.toggle()
                 } label: {
@@ -64,12 +68,10 @@ struct ContentView: View {
                         .foregroundColor(.black)
                         .bold()
                 }
+//                跳至下一頁的Navigation
                 NavigationLink(destination: GameView(lv: level), isActive: $isPresented) {
                     EmptyView()
                 }
-//                .fullScreenCover(isPresented: $isPresented){
-//                    GameView(level: $level)
-//                }
             }
             .padding(.bottom, (UIScreen.main.bounds.height / 15))
             .navigationBarHidden(true)

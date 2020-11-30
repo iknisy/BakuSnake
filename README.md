@@ -44,6 +44,6 @@ Normal模式會出現兩個以上的食物，但是只有一個是真的
 Hard難度則是會有戰爭迷霧，遊戲中只會繪製蛇附近的畫面
 <p align="center"><img src="./ScreenShot/GameViewL3.png" alt="GameView" height="800"></p>
 最後遊戲結束後會出現所有玩家的排名
-<p>若本局得分可以排入前十就會出現Update</p>
+<p>若本局得分可以排入前十就會出現上傳分數的按鈕</p>
 <p align="center"><img src="./ScreenShot/GameOverView.png" alt="GameOverView" height="800"></p>
 

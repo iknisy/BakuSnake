@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct GameOverView: View {
+//    GameView中控制dismiss用的
     @Binding var gameOverFlag: Bool
+//    控制是否跳至上一頁的
     @Binding var restartFlag: Bool
     @State private var name: String = ""
-    @State private var rankings = RankingViewModel()
+    private let rankings = RankingViewModel()
     private let score: Int
     
     init(score: Int, gameOverFlag: Binding<Bool>, restartFlag: Binding<Bool>) {
@@ -24,6 +26,7 @@ struct GameOverView: View {
     var body: some View {
         VStack{
             Text("Your score: \(score)")
+//            確認可以排上前10才出現輸入名字的TextField跟按鈕
             if rankings.ableUpdate {
                 TextField("Your name:", text: $name)
                     .padding(.horizontal, UIScreen.main.bounds.width * 0.1)
@@ -35,6 +38,7 @@ struct GameOverView: View {
                 }
             }
             VStack{
+//                從viewModel獲得排名資訊然後顯示
                 Text("Best Ranking:")
                 if rankings.ranking.count == 0 {
                     Text("Loading...\n")
@@ -47,6 +51,7 @@ struct GameOverView: View {
                     }
                 }
             }
+//            回到上一頁的按鈕
             Button{
                 gameOverFlag = false
             } label: {
@@ -54,6 +59,7 @@ struct GameOverView: View {
             }
         }
         .onDisappear{
+//            回到上一頁就回到最初畫面
             restartFlag = !gameOverFlag
         }
     }
